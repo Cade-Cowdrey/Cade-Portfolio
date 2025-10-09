@@ -4,39 +4,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cade Cowdrey — Portfolio</title>
-  <meta name="description" content="Cade Cowdrey — Strategic Communications, Leadership, Brand & Operations Strategy." />
-  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="assets/manifest.json" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <meta name="description" content="Cade Cowdrey — Strategic Communications, Leadership, and Brand Strategy Portfolio." />
+  <link rel="icon" type="image/svg+xml" href="/Cade-Portfolio/assets/images/favicon-light.svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/svg+xml" href="/Cade-Portfolio/assets/images/favicon-dark.svg" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="/Cade-Portfolio/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header class="site-header" id="top">
     <div class="container nav-wrap">
-      <a class="brand" href="#home"><img src="assets/images/logo.svg" alt="Logo" height="36" /></a>
+      <a class="brand" href="#home">CADE COWDREY</a>
       <nav class="nav">
         <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
         <ul id="nav-menu">
           <li><a href="#home" class="scroll">Home</a></li>
           <li><a href="#about" class="scroll">About</a></li>
           <li><a href="#experience" class="scroll">Experience</a></li>
-          <li><a href="#leadership" class="scroll">Leadership & Impact</a></li>
-          <li><a href="#research" class="scroll">Research & Writing</a></li>
+          <li><a href="#leadership" class="scroll">Leadership</a></li>
+          <li><a href="#research" class="scroll">Research</a></li>
           <li><a href="#projects" class="scroll">Projects</a></li>
           <li><a href="#testimonials" class="scroll">Testimonials</a></li>
-          <li><a href="#gallery" class="scroll">Gallery & Media</a></li>
+          <li><a href="#gallery" class="scroll">Gallery</a></li>
           <li><a href="#contact" class="scroll">Contact</a></li>
         </ul>
       </nav>
       <button id="themeToggle" class="theme-toggle" title="Toggle light/dark (L)">
-        <img src="assets/icons/sun.svg" alt="Sun" class="sun" width="20" />
-        <img src="assets/icons/moon.svg" alt="Moon" class="moon" width="20" />
+        <img src="/Cade-Portfolio/assets/icons/sun.svg" alt="Sun" class="sun" width="20" />
+        <img src="/Cade-Portfolio/assets/icons/moon.svg" alt="Moon" class="moon" width="20" />
       </button>
     </div>
   </header>
 
   <div id="progress-bar"></div>
 
+  <!-- ===== Hero Section ===== -->
   <section id="home" class="hero section">
     <div class="container hero-grid">
       <div class="hero-copy">
@@ -46,38 +48,31 @@
           <a class="btn primary scroll" href="#about">About Me</a>
           <a class="btn outline scroll" href="#projects">View Projects</a>
         </div>
-        <div class="quick-links">
-          <a class="chip scroll" href="#experience">Experience</a>
-          <a class="chip scroll" href="#leadership">Leadership & Impact</a>
-          <a class="chip scroll" href="#research">Research & Writing</a>
-          <a class="chip scroll" href="#testimonials">Testimonials</a>
-          <a class="chip scroll" href="#gallery">Gallery & Media</a>
-          <a class="chip scroll" href="#contact">Contact</a>
-        </div>
       </div>
       <div class="hero-image">
-        <img src="assets/images/profile.png" alt="Cade Cowdrey portrait" />
+        <img src="/Cade-Portfolio/assets/profile.png" alt="Cade Cowdrey Portrait" />
       </div>
     </div>
   </section>
 
+  <!-- ===== About Section ===== -->
   <section id="about" class="section">
     <div class="container narrow">
       <h2>About</h2>
       <p>
-        I’m Cade Cowdrey, a Strategic Communications student with a Leadership minor at Pittsburg State University.  
-        I connect data, systems, and people — building messaging and processes that actually work for teams, clients, and brands.
+        I’m Cade Cowdrey — a Strategic Communications professional at Pittsburg State University focused on building meaningful connections between teams, data, and storytelling. My work blends communication, leadership, and brand insight to deliver strategy that inspires action.
       </p>
       <div class="skills">
         <span class="tag">Leadership</span>
-        <span class="tag">Research</span>
+        <span class="tag">Strategic Communication</span>
         <span class="tag">Operations Strategy</span>
         <span class="tag">Public Relations</span>
-        <span class="tag">Strategic Communication</span>
+        <span class="tag">Research & Writing</span>
       </div>
     </div>
   </section>
 
+  <!-- ===== Experience Section ===== -->
   <section id="experience" class="section alt">
     <div class="container">
       <h2>Experience</h2>
@@ -86,145 +81,147 @@
           <h3>Sales & Supply Chain Intern — Jake’s Fireworks</h3>
           <p class="muted">Mar 2025 – Present</p>
           <ul>
-            <li>Improved warehouse efficiency and reduced order error rates to 0%.</li>
-            <li>Built compliance tracking and improved cross-team communication.</li>
+            <li>Led operational improvements in logistics and compliance across multiple departments.</li>
+            <li>Reduced order errors to 0% through process audits and structured inventory analysis.</li>
+            <li>Developed communication materials for management training and internal alignment.</li>
           </ul>
         </article>
+
         <article class="card">
           <h3>Business Development Intern — Go Local Interactive</h3>
           <p class="muted">May 2023 – Aug 2023</p>
           <ul>
-            <li>Assisted client outreach, pipeline strategy, and communications assets.</li>
+            <li>Created strategic outreach proposals that improved client engagement metrics.</li>
+            <li>Supported digital marketing analytics and presented research findings to account leads.</li>
           </ul>
         </article>
+
         <article class="card">
-          <h3>Owner — Lawn & Landscape</h3>
+          <h3>Entrepreneur — Lawn & Landscape Management</h3>
           <p class="muted">2015 – 2024</p>
           <ul>
-            <li>Managed business operations, clients, and communications independently.</li>
+            <li>Founded and managed full-service operations from contracts to client communication.</li>
+            <li>Balanced long-term growth while maintaining consistent service quality and reputation.</li>
           </ul>
         </article>
       </div>
     </div>
   </section>
 
+  <!-- ===== Leadership & Impact ===== -->
   <section id="leadership" class="section">
     <div class="container">
       <h2>Leadership & Impact</h2>
+      <p>Leadership rooted in initiative, vision, and accountability — shaping people and progress through action and empathy.</p>
       <ul class="leadership-grid">
-        <li><strong>President</strong> — Pi Kappa Alpha</li>
-        <li><strong>VP of Administration</strong> — Interfraternity Council</li>
+        <li><strong>President</strong> — Pi Kappa Alpha Fraternity</li>
+        <li><strong>Vice President of Administration</strong> — Interfraternity Council</li>
         <li><strong>Golden Gorilla Award</strong> — Pittsburg State University</li>
-        <li><strong>National Pike Recruitment Award</strong></li>
+        <li><strong>National Pike Recruitment Award</strong> — Recognized for chapter excellence</li>
+        <li><strong>Pike Quarterly Feature</strong> — Highlighted for organizational leadership initiatives</li>
       </ul>
     </div>
   </section>
 
+  <!-- ===== Research & Writing ===== -->
   <section id="research" class="section alt">
     <div class="container">
       <h2>Research & Writing</h2>
       <article class="card">
         <h3>Generation Z Alcohol Consumption Study</h3>
+        <p>A qualitative study examining social influences, brand messaging, and behavioral motivations among Generation Z regarding alcohol consumption habits.</p>
         <details class="viewer">
           <summary class="btn outline small">Open Preview</summary>
           <div class="pdf-wrap">
-            <iframe src="assets/pdfs/Qualitative-Study-Final.pdf#view=FitH" title="Gen Z Study" loading="lazy"></iframe>
+            <iframe src="/Cade-Portfolio/assets/pdfs/Qualitiative Study- FINAL.docx#view=FitH" title="Qualitative Study"></iframe>
           </div>
         </details>
       </article>
     </div>
   </section>
 
+  <!-- ===== Projects Section ===== -->
   <section id="projects" class="section">
     <div class="container">
-      <h2>Projects / Case Studies</h2>
+      <h2>Projects</h2>
+      <p class="intro">A selection of projects that demonstrate my range across strategic communication, leadership, and research — blending creative insight with operational precision.</p>
       <div class="card-grid">
         <article class="card project">
           <h3>Jake’s Fireworks Internship Report</h3>
-          <p>Operations systems, inventory, compliance, and process improvements.</p>
+          <p>Analyzed internal operations, process improvements, and compliance strategies for large-scale inventory systems.</p>
           <details class="viewer">
             <summary class="btn outline small">Open Preview</summary>
             <div class="pdf-wrap">
-              <iframe src="assets/pdfs/Jakes-Intern-Report.pdf#view=FitH" title="Jake Report" loading="lazy"></iframe>
+              <iframe src="/Cade-Portfolio/assets/pdfs/Jake's Intern Report CDC (2).pdf#view=FitH" title="Jake's Internship Report"></iframe>
             </div>
           </details>
-          <div class="actions">
-            <a class="btn small" href="assets/pdfs/Jakes-Intern-Report.pdf" target="_blank" rel="noopener">Open in new tab</a>
-          </div>
         </article>
 
         <article class="card project">
           <h3>NFA Convention Analysis</h3>
-          <p>Convention strategy, brand visibility, and booth design insights.</p>
+          <p>Comprehensive brand and communication evaluation for the National Forensics Association Convention — assessing strategic engagement outcomes.</p>
           <details class="viewer">
             <summary class="btn outline small">Open Preview</summary>
             <div class="pdf-wrap">
-              <iframe src="assets/pdfs/NFA-COMP-ANALYSIS.pdf#view=FitH" title="NFA Analysis" loading="lazy"></iframe>
+              <iframe src="/Cade-Portfolio/assets/pdfs/NFA COMP ANALYSIS.pdf#view=FitH" title="NFA Comp Analysis"></iframe>
             </div>
           </details>
-          <div class="actions">
-            <a class="btn small" href="assets/pdfs/NFA-COMP-ANALYSIS.pdf" target="_blank" rel="noopener">Open in new tab</a>
-          </div>
         </article>
 
         <article class="card project">
-          <h3>Generation Z Alcohol Study</h3>
-          <p>Behavioral research on Gen Z drinking motivations and media influence.</p>
+          <h3>Professional Resume</h3>
+          <p>Résumé outlining academic achievements, leadership, and professional development across multiple fields of communication.</p>
           <details class="viewer">
             <summary class="btn outline small">Open Preview</summary>
             <div class="pdf-wrap">
-              <iframe src="assets/pdfs/Qualitative-Study-Final.pdf#view=FitH" title="Gen Z Study" loading="lazy"></iframe>
+              <iframe src="/Cade-Portfolio/assets/pdfs/Cade Cowdrey Resume (3).pdf#view=FitH" title="Resume"></iframe>
             </div>
           </details>
-          <div class="actions">
-            <a class="btn small" href="assets/pdfs/Qualitative-Study-Final.pdf" target="_blank" rel="noopener">Open in new tab</a>
-          </div>
         </article>
 
         <article class="card project">
-          <h3>Resume / Personal Branding</h3>
-          <p>Summary of skills, roles, leadership, and communication.</p>
+          <h3>Pike Quarterly Leadership Feature</h3>
+          <p>Publication recognizing organizational leadership and chapter excellence initiatives featured in Pike Quarterly.</p>
           <details class="viewer">
             <summary class="btn outline small">Open Preview</summary>
             <div class="pdf-wrap">
-              <iframe src="assets/pdfs/cade_cowdrey_resume.pdf#view=FitH" title="Resume" loading="lazy"></iframe>
+              <iframe src="/Cade-Portfolio/assets/pdfs/Pike Quarterly.pdf#view=FitH" title="Pike Quarterly"></iframe>
             </div>
           </details>
-          <div class="actions">
-            <a class="btn small" href="assets/pdfs/cade_cowdrey_resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
-          </div>
         </article>
       </div>
     </div>
   </section>
 
+  <!-- ===== Testimonials Section ===== -->
   <section id="testimonials" class="section alt">
     <div class="container">
       <h2>Testimonials</h2>
       <div class="testimonials">
         <blockquote>
-          <p>“Cade’s systems thinking and clarity improved our workflows meaningfully.”</p>
-          <cite>— Brian Hamilton, Jake’s Fireworks</cite>
+          <p>“Cade’s vision and structure turned ideas into tangible outcomes for our team.”</p>
+          <cite>— Brian Hamilton, Director at Jake’s Fireworks</cite>
         </blockquote>
         <blockquote>
-          <p>“He connects data with communication in a way that makes sense.”</p>
-          <cite>— Dr. Malcom Jason, Pittsburg State University</cite>
+          <p>“He bridges data and storytelling — leading with purpose, clarity, and empathy.”</p>
+          <cite>— Dr. Malcolm Jason, Pittsburg State University</cite>
         </blockquote>
         <blockquote>
-          <p>“Cade turns challenges into structured solutions that work.”</p>
-          <cite>— Jared Hicks, Jake’s Fireworks</cite>
+          <p>“A communicator with uncommon discipline — Cade’s leadership consistently raises the bar.”</p>
+          <cite>— Jared Hicks, Mentor & Advisor</cite>
         </blockquote>
       </div>
     </div>
   </section>
 
+  <!-- ===== Gallery Section ===== -->
   <section id="gallery" class="section">
     <div class="container">
       <h2>Gallery & Media</h2>
       <div class="gallery-grid">
-        <a href="assets/images/gallery-1.jpg" class="gallery-item"><img src="assets/images/gallery-1.jpg" alt=""></a>
-        <a href="assets/images/gallery-2.jpg" class="gallery-item"><img src="assets/images/gallery-2.jpg" alt=""></a>
-        <a href="assets/images/gallery-3.jpg" class="gallery-item"><img src="assets/images/gallery-3.jpg" alt=""></a>
+        <a href="/Cade-Portfolio/assets/images/gallery-1.jpg" class="gallery-item"><img src="/Cade-Portfolio/assets/images/gallery-1.jpg" alt=""></a>
+        <a href="/Cade-Portfolio/assets/images/gallery-2.jpg" class="gallery-item"><img src="/Cade-Portfolio/assets/images/gallery-2.jpg" alt=""></a>
+        <a href="/Cade-Portfolio/assets/images/gallery-3.jpg" class="gallery-item"><img src="/Cade-Portfolio/assets/images/gallery-3.jpg" alt=""></a>
       </div>
       <dialog id="lightbox">
         <button class="close">×</button>
@@ -233,23 +230,25 @@
     </div>
   </section>
 
+  <!-- ===== Contact Section ===== -->
   <section id="contact" class="section alt">
     <div class="container narrow">
       <h2>Contact</h2>
       <p><strong>Email:</strong> <a href="mailto:ccowdrey@gus.pittstate.edu">ccowdrey@gus.pittstate.edu</a></p>
       <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/cade-cowdrey" target="_blank">linkedin.com/in/cade-cowdrey</a></p>
-      <a class="btn primary" href="assets/pdfs/cade_cowdrey_resume.pdf" target="_blank">Download Resume</a>
+      <a class="btn primary" href="/Cade-Portfolio/assets/pdfs/Cade Cowdrey Resume (3).pdf" target="_blank">Download Resume</a>
     </div>
   </section>
 
+  <!-- ===== Footer ===== -->
   <footer class="site-footer">
     <div class="container">
-      <small>© <span id="year"></span> Cade Cowdrey</small>
+      <small>© <span id="year"></span> Cade Cowdrey. All rights reserved.</small>
     </div>
   </footer>
 
   <button id="backToTop" title="Back to Top">↑</button>
 
-  <script src="app.js"></script>
+  <script src="/Cade-Portfolio/app.js"></script>
 </body>
 </html>
