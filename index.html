@@ -5,15 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cade Cowdrey — Portfolio</title>
   <meta name="description" content="Cade Cowdrey — Strategic Communications, Leadership, Brand & Operations Strategy." />
-  <link rel="preload" href="assets/images/cade-hero.jpg" as="image">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- ===== Top Navigation ===== -->
+  <!-- ===== Header Navigation ===== -->
   <header class="site-header" id="top">
     <div class="container nav-wrap">
       <a class="brand" href="#home">CADE</a>
-
       <nav class="nav" aria-label="Primary">
         <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">☰</button>
         <ul id="nav-menu">
@@ -43,12 +41,10 @@
       <div class="hero-copy">
         <h1>Cade Cowdrey</h1>
         <p class="kicker">Strategic Communications • Leadership • Brand & Operations Strategy</p>
-
         <div class="cta-row">
           <a class="btn primary scroll" href="#about">About Me</a>
           <a class="btn outline scroll" href="#projects">View Projects</a>
         </div>
-
         <div class="quick-links">
           <a class="chip scroll" href="#experience">Experience</a>
           <a class="chip scroll" href="#leadership">Leadership & Impact</a>
@@ -70,12 +66,10 @@
     <div class="container narrow">
       <h2>About</h2>
       <p>
-        I’m Cade Cowdrey, a Strategic Communications student (Leadership minor) at Pittsburg State University.
-        I build clear systems, clean messaging, and efficient operations—bridging <em>brand</em> and
-        <em>execution</em>. I’ve led teams, improved warehouse workflows, and developed marketing/communications
-        assets that move the needle.
+        I’m Cade Cowdrey, a Strategic Communications student with a Leadership minor at Pittsburg State University.
+        My passion lies in connecting data-driven insight with human-centered communication to create systems that
+        work better — for teams, customers, and brands alike.
       </p>
-
       <div class="skills">
         <span class="tag">Communication</span>
         <span class="tag">Operations</span>
@@ -91,32 +85,30 @@
   <section id="experience" class="section alt">
     <div class="container">
       <h2>Experience</h2>
-
       <div class="timeline">
         <article class="card">
           <h3>Sales & Supply Chain Intern — Jake’s Fireworks</h3>
           <p class="muted">Mar 2025 – Present</p>
           <ul>
-            <li>Streamlined CPU process to achieve near-100% order accuracy and reduce turnaround time.</li>
-            <li>Built quick-look inventory sheets driving >$40k in wholesale/tent sales.</li>
-            <li>Cross-functional coordination (sales/warehouse/compliance) to avoid delays and errors.</li>
+            <li>Redesigned CPU process for 100% order accuracy and improved warehouse efficiency.</li>
+            <li>Built compliance tracking systems for CA/VA product markets.</li>
+            <li>Contributed to >$50K in protected or generated sales across multiple departments.</li>
           </ul>
-          <a class="btn small" href="#projects">See related project</a>
         </article>
-
         <article class="card">
           <h3>Business Development Intern — Go Local Interactive</h3>
           <p class="muted">May 2023 – Aug 2023</p>
           <ul>
-            <li>Supported B2B pipeline, client outreach, and sales ops with a communications-first approach.</li>
+            <li>Supported new client acquisition through cold calls and CRM follow-ups.</li>
+            <li>Applied strategic communication to improve engagement and conversion.</li>
           </ul>
         </article>
-
         <article class="card">
           <h3>Owner — Lawn & Landscape</h3>
           <p class="muted">2015 – 2024</p>
           <ul>
-            <li>Operated a small business end-to-end: clients, logistics, invoicing, and quality control.</li>
+            <li>Built and managed a small business serving 10+ regular clients for 9 years.</li>
+            <li>Oversaw operations, customer communication, and invoicing.</li>
           </ul>
         </article>
       </div>
@@ -128,10 +120,10 @@
     <div class="container">
       <h2>Leadership & Impact</h2>
       <ul class="leadership-grid">
-        <li><strong>President</strong> — Pi Kappa Alpha</li>
+        <li><strong>President</strong> — Pi Kappa Alpha Fraternity</li>
         <li><strong>VP of Administration</strong> — Interfraternity Council</li>
-        <li><strong>Golden Gorilla</strong> — Pittsburg State University</li>
-        <li><strong>National Pike Recruitment Award</strong></li>
+        <li><strong>Golden Gorilla Award</strong> — Pittsburg State University</li>
+        <li><strong>National Pike Recruitment Award</strong> — Pi Kappa Alpha National</li>
       </ul>
     </div>
   </section>
@@ -140,26 +132,20 @@
   <section id="research" class="section alt">
     <div class="container">
       <h2>Research & Writing</h2>
-
-      <div class="research-list">
-        <article class="card">
-          <h3>Generation Z Alcohol Consumption — A Qualitative Study</h3>
-          <p>Behavioral trends, social media awareness vs. consumption, and mental-health-driven decision making.</p>
-
-          <details class="viewer">
-            <summary class="btn outline small">Open Preview</summary>
-            <!-- Convert your DOCX to PDF and place as assets/pdfs/GenZ-Alcohol-Study.pdf -->
-            <div class="pdf-wrap">
-              <iframe title="Gen Z Alcohol Study (PDF preview)"
-                      src="assets/pdfs/GenZ-Alcohol-Study.pdf#view=FitH" loading="lazy"></iframe>
-            </div>
-          </details>
-        </article>
-      </div>
+      <article class="card">
+        <h3>Generation Z Alcohol Consumption — Qualitative Study</h3>
+        <p>Explores Gen Z behavioral trends, cultural factors, and motivations behind changing drinking patterns using qualitative analysis.</p>
+        <details class="viewer">
+          <summary class="btn outline small">Open Preview</summary>
+          <div class="pdf-wrap">
+            <iframe src="assets/pdfs/GenZ-Alcohol-Study.pdf#view=FitH" title="Gen Z Alcohol Study" loading="lazy"></iframe>
+          </div>
+        </details>
+      </article>
     </div>
   </section>
 
-  <!-- ===== Projects (Cards + Collapsible PDF Viewers) ===== -->
+  <!-- ===== Projects ===== -->
   <section id="projects" class="section">
     <div class="container">
       <h2>Projects / Case Studies</h2>
@@ -167,55 +153,61 @@
       <div class="card-grid">
         <!-- Project 1 -->
         <article class="card project">
-          <h3>NFA Convention — Comprehensive Analysis</h3>
-          <p>Trade convention insights: booth strategy, giveaways, seminar takeaways, and brand positioning.</p>
-
+          <h3>Jake’s Fireworks Internship Report (June 2025)</h3>
+          <p>Cross-departmental process improvements, customer pickup redesign, compliance tracking, and measurable sales growth.</p>
           <details class="viewer">
             <summary class="btn outline small">Open Preview</summary>
             <div class="pdf-wrap">
-              <iframe title="NFA Comprehensive Analysis (PDF preview)"
-                      src="assets/pdfs/NFA-COMP-ANALYSIS.pdf#view=FitH" loading="lazy"></iframe>
+              <iframe src="assets/pdfs/Jakes-Intern-Report.pdf#view=FitH" title="Jake’s Fireworks Intern Report"></iframe>
             </div>
           </details>
-
           <div class="actions">
-            <a class="btn small" href="assets/pdfs/NFA-COMP-ANALYSIS.pdf" target="_blank" rel="noopener">Open in new tab</a>
+            <a class="btn small" href="assets/pdfs/Jakes-Intern-Report.pdf" target="_blank">Open in new tab</a>
           </div>
         </article>
 
         <!-- Project 2 -->
         <article class="card project">
-          <h3>Jake’s Fireworks — Intern Report</h3>
-          <p>Operational improvements, CPU process redesign, inventory visibility, and cross-team communication.</p>
-
+          <h3>NFA Convention Comprehensive Analysis</h3>
+          <p>Market insights and strategic recommendations for brand visibility and booth optimization during the NFA trade convention.</p>
           <details class="viewer">
             <summary class="btn outline small">Open Preview</summary>
             <div class="pdf-wrap">
-              <iframe title="Jake's Intern Report (PDF preview)"
-                      src="assets/pdfs/Jakes-Intern-Report.pdf#view=FitH" loading="lazy"></iframe>
+              <iframe src="assets/pdfs/NFA-COMP-ANALYSIS.pdf#view=FitH" title="NFA Comprehensive Analysis"></iframe>
             </div>
           </details>
-
           <div class="actions">
-            <a class="btn small" href="assets/pdfs/Jakes-Intern-Report.pdf" target="_blank" rel="noopener">Open in new tab</a>
+            <a class="btn small" href="assets/pdfs/NFA-COMP-ANALYSIS.pdf" target="_blank">Open in new tab</a>
           </div>
         </article>
 
         <!-- Project 3 -->
         <article class="card project">
-          <h3>Résumé (Download)</h3>
-          <p>Concise summary of skills, experience, leadership, and achievements.</p>
-
+          <h3>Generation Z Alcohol Consumption Study</h3>
+          <p>Research-based project examining social, cultural, and media influences on Gen Z drinking behaviors.</p>
           <details class="viewer">
             <summary class="btn outline small">Open Preview</summary>
             <div class="pdf-wrap">
-              <iframe title="Cade Cowdrey Resume (PDF preview)"
-                      src="assets/pdfs/Cade-Cowdrey-Resume.pdf#view=FitH" loading="lazy"></iframe>
+              <iframe src="assets/pdfs/GenZ-Alcohol-Study.pdf#view=FitH" title="Gen Z Alcohol Study"></iframe>
             </div>
           </details>
-
           <div class="actions">
-            <a class="btn small" href="assets/pdfs/Cade-Cowdrey-Resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
+            <a class="btn small" href="assets/pdfs/GenZ-Alcohol-Study.pdf" target="_blank">Open in new tab</a>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="card project">
+          <h3>Professional Resume</h3>
+          <p>Overview of education, experience, leadership, and communication strengths.</p>
+          <details class="viewer">
+            <summary class="btn outline small">Open Preview</summary>
+            <div class="pdf-wrap">
+              <iframe src="assets/pdfs/Cade-Cowdrey-Resume.pdf#view=FitH" title="Cade Cowdrey Resume"></iframe>
+            </div>
+          </details>
+          <div class="actions">
+            <a class="btn small" href="assets/pdfs/Cade-Cowdrey-Resume.pdf" target="_blank">Open in new tab</a>
           </div>
         </article>
       </div>
@@ -226,49 +218,35 @@
   <section id="testimonials" class="section alt">
     <div class="container">
       <h2>Testimonials</h2>
-
       <div class="testimonials">
         <blockquote>
-          <p>“Cade demonstrated professionalism and initiative beyond his years.
-          His systems-driven thinking directly improved our operations.”</p>
+          <p>“Cade’s systems-driven thinking directly improved our operations and customer experience.”</p>
           <cite>— Brian Hamilton, Jake’s Fireworks</cite>
         </blockquote>
-
         <blockquote>
-          <p>“Cade’s ability to bridge data with communication insight is exceptional.
-          His research shows leadership and clarity of purpose.”</p>
+          <p>“He bridges data and communication with clarity and professionalism.”</p>
           <cite>— Dr. Malcom Jason, Pittsburg State University</cite>
         </blockquote>
-
         <blockquote>
-          <p>“He turns challenges into repeatable processes that actually work.
-          You can tell he cares about results.”</p>
+          <p>“He turns operational chaos into repeatable systems that just work.”</p>
           <cite>— Jared Hicks, Jake’s Fireworks</cite>
         </blockquote>
       </div>
     </div>
   </section>
 
-  <!-- ===== Gallery & Media ===== -->
+  <!-- ===== Gallery ===== -->
   <section id="gallery" class="section">
     <div class="container">
       <h2>Gallery & Media</h2>
-
-      <div class="gallery-grid" role="list">
-        <a href="assets/images/gallery-1.jpg" class="gallery-item" role="listitem">
-          <img src="assets/images/gallery-1.jpg" alt="NFA booth highlight" />
-        </a>
-        <a href="assets/images/gallery-2.jpg" class="gallery-item" role="listitem">
-          <img src="assets/images/gallery-2.jpg" alt="Convention demo night" />
-        </a>
-        <a href="assets/images/gallery-3.jpg" class="gallery-item" role="listitem">
-          <img src="assets/images/gallery-3.jpg" alt="Team & operations" />
-        </a>
+      <div class="gallery-grid">
+        <a href="assets/images/gallery-1.jpg" class="gallery-item"><img src="assets/images/gallery-1.jpg" alt="NFA Booth"></a>
+        <a href="assets/images/gallery-2.jpg" class="gallery-item"><img src="assets/images/gallery-2.jpg" alt="Convention Setup"></a>
+        <a href="assets/images/gallery-3.jpg" class="gallery-item"><img src="assets/images/gallery-3.jpg" alt="Team at Event"></a>
       </div>
 
-      <!-- Lightweight lightbox using native <dialog> -->
       <dialog id="lightbox">
-        <button class="close" aria-label="Close">×</button>
+        <button class="close">×</button>
         <img id="lightbox-img" alt="">
       </dialog>
     </div>
@@ -281,8 +259,8 @@
       <div class="contact-grid">
         <div>
           <p><strong>Email:</strong> <a href="mailto:ccowdrey@gus.pittstate.edu">ccowdrey@gus.pittstate.edu</a></p>
-          <p><strong>LinkedIn:</strong> <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/cade-cowdrey/">linkedin.com/in/cade-cowdrey</a></p>
-          <p><strong>Resume:</strong> <a href="assets/pdfs/Cade-Cowdrey-Resume.pdf" target="_blank" rel="noopener">Download PDF</a></p>
+          <p><strong>LinkedIn:</strong> <a target="_blank" href="https://www.linkedin.com/in/cade-cowdrey/">linkedin.com/in/cade-cowdrey</a></p>
+          <p><strong>Resume:</strong> <a href="assets/pdfs/Cade-Cowdrey-Resume.pdf" target="_blank">Download PDF</a></p>
         </div>
         <div>
           <a class="btn primary scroll" href="#projects">Explore Projects</a>
