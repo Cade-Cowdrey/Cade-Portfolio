@@ -1,7 +1,10 @@
 // ===== Scroll Progress Bar =====
-const progressBar = document.createElement('div');
-progressBar.id = 'progress-bar';
-document.body.prepend(progressBar);
+const progressBar = document.getElementById('progress-bar') || (() => {
+  const p = document.createElement('div');
+  p.id = 'progress-bar';
+  document.body.prepend(p);
+  return p;
+})();
 window.addEventListener('scroll', () => {
   const scrollTop = window.scrollY;
   const docHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -16,7 +19,10 @@ document.querySelectorAll('a.scroll').forEach(a => {
     const id = a.getAttribute('href');
     if (id && id.startsWith('#')) {
       e.preventDefault();
-      document.querySelector(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const target = document.querySelector(id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
       navMenu.classList.remove('open');
       navToggle.setAttribute('aria-expanded', 'false');
     }
@@ -35,8 +41,11 @@ navToggle?.addEventListener('click', () => {
 const themeToggle = document.getElementById('themeToggle');
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 const saved = localStorage.getItem('cade-theme');
-if (saved) document.documentElement.classList.toggle('dark', saved === 'dark');
-else document.documentElement.classList.toggle('dark', prefersDark);
+if (saved) {
+  document.documentElement.classList.toggle('dark', saved === 'dark');
+} else {
+  document.documentElement.classList.toggle('dark', prefersDark);
+}
 
 themeToggle?.addEventListener('click', () => {
   document.documentElement.classList.toggle('dark');
@@ -44,12 +53,14 @@ themeToggle?.addEventListener('click', () => {
     document.documentElement.classList.contains('dark') ? 'dark' : 'light'
   );
 });
-document.addEventListener('keydown', e => { if (e.key.toLowerCase() === 'l') themeToggle?.click(); });
+document.addEventListener('keydown', e => {
+  if (e.key.toLowerCase() === 'l') themeToggle?.click();
+});
 
 // ===== Footer Year =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ===== Lightbox =====
+// ===== Lightbox Gallery =====
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 document.querySelectorAll('.gallery-item').forEach(a => {
@@ -59,10 +70,12 @@ document.querySelectorAll('.gallery-item').forEach(a => {
     lightbox.showModal();
   });
 });
-lightbox.querySelector('.close').addEventListener('click', () => lightbox.close());
-lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.close(); });
+lightbox.querySelector('.close')?.addEventListener('click', () => lightbox.close());
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) lightbox.close();
+});
 
-// ===== Close other details when one opens =====
+// ===== Collapse other details =====
 document.querySelectorAll('.card details').forEach(d => {
   d.addEventListener('toggle', () => {
     if (d.open) {
@@ -73,7 +86,7 @@ document.querySelectorAll('.card details').forEach(d => {
   });
 });
 
-// ===== Section & Card Reveal Animations =====
+// ===== Reveal animations =====
 const revealElements = document.querySelectorAll('section, .card, .gallery-item, blockquote');
 revealElements.forEach(el => el.classList.add('hidden-reveal'));
 const observer = new IntersectionObserver(entries => {
@@ -87,12 +100,14 @@ const observer = new IntersectionObserver(entries => {
 revealElements.forEach(el => observer.observe(el));
 
 // ===== Back to Top Button =====
-const backToTop = document.createElement('button');
-backToTop.id = 'backToTop';
-backToTop.title = 'Back to Top';
-backToTop.innerHTML = '↑';
-document.body.appendChild(backToTop);
-
+const backToTop = document.getElementById('backToTop') || (() => {
+  const btn = document.createElement('button');
+  btn.id = 'backToTop';
+  btn.title = 'Back to Top';
+  btn.innerHTML = '↑';
+  document.body.appendChild(btn);
+  return btn;
+})();
 window.addEventListener('scroll', () => {
   if (window.scrollY > window.innerHeight * 0.5) {
     backToTop.classList.add('show');
@@ -100,7 +115,6 @@ window.addEventListener('scroll', () => {
     backToTop.classList.remove('show');
   }
 });
-
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
