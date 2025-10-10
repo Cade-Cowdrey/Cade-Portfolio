@@ -1,5 +1,5 @@
 /* ==========================================================
-   Cade Cowdrey Portfolio – Classic Refined Theme
+   Cade Cowdrey Portfolio – Classic Refined Theme + Day Mode
    Blue-gray + soft gold luxury palette
    ========================================================== */
 
@@ -17,25 +17,35 @@ html, body {
   color: #e8e8e8;
   scroll-behavior: smooth;
   line-height: 1.7;
-}
-
-/* Light mode */
-body.light-mode {
-  background-color: #fdfdfd;
-  color: #222;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* ---------- COLOR PALETTE ---------- */
 :root {
   --navy: #0b0f1a;
-  --navy-light: #111623;
+  --navy-light: #121827;
   --gray: #181d2a;
-  --gray-light: #1f2433;
+  --gray-light: #20263a;
   --blue-gray: #2a3142;
   --gold: #bfa76b;
   --gold-light: #d6c285;
   --text: #f2f2f2;
   --muted: #9ea3b0;
+}
+
+/* ---------- LIGHT MODE OVERRIDES ---------- */
+body.light-mode {
+  background-color: #f6f7f9;
+  color: #2a2a2a;
+  --navy: #f9f9f9;
+  --navy-light: #ffffff;
+  --gray: #f0f0f2;
+  --gray-light: #e8e8ec;
+  --blue-gray: #ffffff;
+  --gold: #c1a86e;
+  --gold-light: #e3c984;
+  --text: #1e1e1e;
+  --muted: #666;
 }
 
 /* ---------- STRUCTURE ---------- */
@@ -64,14 +74,16 @@ body.light-mode {
 
 .section.alt {
   background-color: var(--gray);
+  transition: background-color 0.5s ease;
 }
 
 /* ---------- HERO ---------- */
 #hero {
   text-align: center;
   padding: 110px 20px 70px;
-  background: linear-gradient(180deg, #0b0f1a 40%, #1a2032 100%);
+  background: linear-gradient(180deg, var(--navy) 40%, var(--gray-light) 100%);
   border-bottom: 1px solid rgba(191,167,107,0.25);
+  transition: background 0.5s ease;
 }
 
 .hero-inner {
@@ -102,6 +114,10 @@ h1 {
   color: #cfd4e3;
   margin-bottom: 10px;
   letter-spacing: 0.3px;
+}
+
+body.light-mode .tagline {
+  color: #444;
 }
 
 .hero-buttons {
@@ -151,6 +167,7 @@ h1 {
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: background-color 0.5s ease;
 }
 
 #nav-menu ul {
@@ -208,7 +225,7 @@ h1 {
   border: 1px solid rgba(191,167,107,0.25);
   padding: 22px;
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
 }
 
 .card:hover {
@@ -225,6 +242,10 @@ h1 {
   color: #d4d4d4;
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+body.light-mode .card p {
+  color: #333;
 }
 
 /* ---------- COLLAPSIBLE PDF ---------- */
@@ -311,6 +332,7 @@ footer {
   border-top: 1px solid rgba(191,167,107,0.2);
   font-size: 0.9rem;
   color: #aaa;
+  transition: border-color 0.5s ease;
 }
 
 /* ---------- BACK TO TOP ---------- */
@@ -334,40 +356,6 @@ footer {
 #backToTop:hover {
   background: var(--gold-light);
   transform: translateY(-3px);
-}
-
-/* ---------- LIGHT MODE ---------- */
-body.light-mode {
-  background: #fafafa;
-  color: #222;
-}
-
-body.light-mode #nav-menu {
-  background: #fff;
-  border-bottom: 1px solid #eee;
-}
-
-body.light-mode .section.alt {
-  background: #f6f6f6;
-}
-
-body.light-mode .card {
-  background: #fff;
-  border: 1px solid #ddd;
-}
-
-body.light-mode h1 {
-  color: var(--gold);
-}
-
-body.light-mode .btn.secondary {
-  color: var(--gold);
-  border-color: var(--gold);
-}
-
-body.light-mode .btn.secondary:hover {
-  background: var(--gold);
-  color: #fff;
 }
 
 /* ---------- RESPONSIVE ---------- */
