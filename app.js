@@ -2,10 +2,12 @@
 const themeToggle = document.getElementById("themeToggle");
 const body = document.body;
 
-// Load saved theme
+// Load saved theme from localStorage
 if (localStorage.getItem("theme") === "dark") {
   body.classList.add("dark");
   themeToggle.textContent = "☀️";
+} else {
+  themeToggle.textContent = "🌙";
 }
 
 // Toggle theme on click
@@ -41,4 +43,25 @@ window.addEventListener("scroll", () => {
 
 backToTop.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// ---------- Section Fade-In on Scroll ----------
+const sections = document.querySelectorAll(".section");
+
+const observerOptions = {
+  threshold: 0.2, // section becomes visible when 20% is in view
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      sectionObserver.unobserve(entry.target); // reveal only once
+    }
+  });
+}, observerOptions);
+
+// Observe all sections
+sections.forEach((section) => {
+  sectionObserver.observe(section);
 });
