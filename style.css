@@ -1,16 +1,16 @@
 /* ==========================================================
-   Cade Cowdrey Portfolio – Luxury Depth v7
-   Unified gold shimmer + glowing buttons and link highlights
+   Cade Cowdrey Portfolio – Luxury Depth v8
+   Adds scroll fade animations, synced glow timing, and luxury tone
    ========================================================== */
 
-/* ---------- RESET ---------- */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ---------- BASE ---------- */
+/* BASE */
 html, body {
   font-family: 'Poppins', 'Montserrat', 'Segoe UI', sans-serif;
   background: #0b0f1a;
@@ -20,7 +20,7 @@ html, body {
   transition: background 0.6s ease, color 0.6s ease;
 }
 
-/* ---------- PALETTE ---------- */
+/* PALETTE */
 :root {
   --navy-dark: #0b0f1a;
   --navy-mid: #151a27;
@@ -31,7 +31,7 @@ html, body {
   --text-muted: #aeb4c1;
 }
 
-/* ---------- LIGHT MODE ---------- */
+/* LIGHT MODE */
 body.light-mode {
   background: #f9f9fb;
   color: #222;
@@ -44,63 +44,62 @@ body.light-mode {
   --text-muted: #555;
 }
 
-/* ---------- ANIMATIONS ---------- */
+/* ANIMATIONS */
 @keyframes shimmer {
   0% { text-shadow: 0 0 8px rgba(191,167,107,0.2); }
   50% { text-shadow: 0 0 18px rgba(191,167,107,0.6); }
   100% { text-shadow: 0 0 8px rgba(191,167,107,0.2); }
 }
-
 @keyframes dividerGlow {
   0% { box-shadow: 0 0 10px rgba(191,167,107,0.25); }
   50% { box-shadow: 0 0 20px rgba(191,167,107,0.55); }
   100% { box-shadow: 0 0 10px rgba(191,167,107,0.25); }
 }
-
 @keyframes ringPulse {
   0% { box-shadow: 0 0 10px rgba(191,167,107,0.3); }
   50% { box-shadow: 0 0 25px rgba(191,167,107,0.7); }
   100% { box-shadow: 0 0 10px rgba(191,167,107,0.3); }
 }
-
 @keyframes buttonGlow {
   0% { box-shadow: 0 0 10px rgba(191,167,107,0.3); }
   50% { box-shadow: 0 0 20px rgba(191,167,107,0.6); }
   100% { box-shadow: 0 0 10px rgba(191,167,107,0.3); }
 }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-/* ---------- CONTAINERS ---------- */
+/* CONTAINERS */
 .container {
   width: 90%;
   max-width: 1100px;
   margin: 0 auto;
 }
-
 .narrow {
   max-width: 720px;
   margin: 0 auto;
 }
 
+/* SECTION */
 .section {
   padding: 80px 0;
   border-top: 1px solid rgba(191,167,107,0.25);
   box-shadow: 0 0 15px rgba(191,167,107,0.35);
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
-  animation: dividerGlow 6s infinite ease-in-out;
+  transform: translateY(25px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
 .section.visible {
   opacity: 1;
   transform: translateY(0);
+  animation: fadeUp 1s ease both;
 }
-
 .section.alt {
   background: var(--navy-light);
 }
 
-/* ---------- HERO ---------- */
+/* HERO */
 #hero {
   text-align: center;
   padding: 120px 20px 80px;
@@ -108,14 +107,12 @@ body.light-mode {
   border-bottom: 1px solid rgba(191,167,107,0.25);
   box-shadow: 0 2px 25px rgba(0,0,0,0.3);
 }
-
 .hero-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 18px;
 }
-
 .hero-img {
   width: 180px;
   height: 180px;
@@ -124,21 +121,19 @@ body.light-mode {
   object-fit: cover;
   animation: ringPulse 6s infinite ease-in-out;
 }
-
 h1 {
   font-size: 2.8rem;
   font-weight: 700;
   color: var(--gold);
   animation: shimmer 5s infinite ease-in-out;
 }
-
 .tagline {
   font-size: 1.1rem;
   color: #cfd4e3;
   letter-spacing: 0.4px;
 }
 
-/* ---------- NAVIGATION ---------- */
+/* NAVIGATION */
 #nav-menu {
   background-color: var(--navy-light);
   display: flex;
@@ -150,27 +145,30 @@ h1 {
   top: 0;
   z-index: 1000;
 }
-
 #nav-menu ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
 }
-
 #nav-menu a {
   color: var(--text-light);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
-  animation: shimmer 7s infinite ease-in-out;
+  animation: shimmer 8s infinite ease-in-out;
 }
-
 #nav-menu a:hover {
   color: var(--gold-light);
 }
+#themeToggle {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
 
-/* ---------- PROGRESS BAR ---------- */
+/* PROGRESS BAR */
 #progress-container {
   width: 100%;
   height: 3px;
@@ -180,7 +178,6 @@ h1 {
   left: 0;
   z-index: 1200;
 }
-
 #progress-bar {
   height: 3px;
   background: var(--gold);
@@ -188,7 +185,7 @@ h1 {
   transition: width 0.25s;
 }
 
-/* ---------- BUTTONS ---------- */
+/* BUTTONS */
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -199,36 +196,31 @@ h1 {
   font-size: 0.95rem;
   cursor: pointer;
 }
-
 .btn.primary {
   background: var(--gold);
   color: #0b0f1a;
   animation: buttonGlow 6s infinite ease-in-out;
 }
-
 .btn.primary:hover {
   background: var(--gold-light);
   transform: translateY(-2px);
 }
-
 .btn.secondary {
   border: 2px solid var(--gold);
   color: var(--gold);
   animation: buttonGlow 6s infinite ease-in-out;
 }
-
 .btn.secondary:hover {
   background: var(--gold);
   color: #0b0f1a;
 }
 
-/* ---------- CARDS ---------- */
+/* CARDS */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
-
 .card {
   background: var(--navy-light);
   border: 1px solid rgba(191,167,107,0.25);
@@ -237,36 +229,31 @@ h1 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
-
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 0 20px rgba(191,167,107,0.3);
 }
-
 .card h3 {
   color: var(--gold);
   margin-bottom: 10px;
 }
-
 .card p {
   color: var(--text-muted);
   font-size: 0.96rem;
   line-height: 1.6;
 }
 
-/* ---------- LISTS (Awards) ---------- */
+/* AWARDS */
 .awards-list {
   list-style: none;
   margin-top: 25px;
 }
-
 .awards-list li {
   margin-bottom: 14px;
   color: #e8e8e8;
   font-size: 1rem;
   line-height: 1.6;
 }
-
 .awards-list strong {
   color: var(--gold);
   font-weight: 600;
@@ -274,9 +261,8 @@ h1 {
   animation: shimmer 6s infinite ease-in-out;
 }
 
-/* ---------- HEADINGS (Hero + Awards + Leadership) ---------- */
-#awards h2,
-#leadership h2 {
+/* HEADINGS */
+#awards h2, #leadership h2, #testimonials h2 {
   color: var(--gold);
   font-size: 2rem;
   text-align: center;
@@ -286,7 +272,7 @@ h1 {
   letter-spacing: 0.5px;
 }
 
-/* ---------- QUOTES ---------- */
+/* QUOTES */
 blockquote {
   font-style: italic;
   color: #ccc;
@@ -295,27 +281,25 @@ blockquote {
   margin: 25px 0 10px;
   line-height: 1.6;
 }
-
 blockquote + p {
   color: var(--gold-light);
   font-size: 0.95rem;
   margin-bottom: 25px;
 }
 
-/* ---------- CONTACT ---------- */
+/* CONTACT */
 #contact a {
   color: var(--gold);
   text-decoration: none;
   font-weight: 500;
   animation: shimmer 8s infinite ease-in-out;
 }
-
 #contact a:hover {
   text-decoration: underline;
   color: var(--gold-light);
 }
 
-/* ---------- FOOTER ---------- */
+/* FOOTER */
 footer {
   text-align: center;
   padding: 25px 10px;
@@ -326,7 +310,7 @@ footer {
   animation: dividerGlow 6s infinite ease-in-out;
 }
 
-/* ---------- BACK TO TOP ---------- */
+/* BACK TO TOP */
 #backToTop {
   display: none;
   position: fixed;
@@ -343,28 +327,15 @@ footer {
   transition: background 0.3s ease, transform 0.3s ease;
   z-index: 1000;
 }
-
 #backToTop:hover {
   background: var(--gold-light);
   transform: translateY(-3px);
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  .hero-img {
-    width: 140px;
-    height: 140px;
-  }
-
-  .card {
-    padding: 20px;
-  }
-
-  #nav-menu ul {
-    gap: 10px;
-  }
+  h1 { font-size: 2rem; }
+  .hero-img { width: 140px; height: 140px; }
+  .card { padding: 20px; }
+  #nav-menu ul { gap: 10px; }
 }
