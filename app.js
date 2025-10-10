@@ -1,75 +1,93 @@
-/* -----------------------------
-   Cade Cowdrey Portfolio Scripts
-   ----------------------------- */
+/* ==========================================================
+   Cade Cowdrey Portfolio – Refined Interaction Script
+   ========================================================== */
 
-// Year in footer
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// Theme Toggle (Light / Dark)
+// ---------- 🌙 THEME TOGGLE ----------
 const themeToggle = document.getElementById("themeToggle");
 const body = document.body;
 
 // Load saved theme
 if (localStorage.getItem("theme") === "light") {
   body.classList.add("light-mode");
+  themeToggle.textContent = "🌙";
 }
 
-// Toggle theme on click
+// Toggle theme
 themeToggle.addEventListener("click", () => {
   body.classList.toggle("light-mode");
-  if (body.classList.contains("light-mode")) {
-    localStorage.setItem("theme", "light");
+  const isLight = body.classList.contains("light-mode");
+  themeToggle.textContent = isLight ? "🌙" : "☀️";
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+});
+
+// ---------- 📜 SCROLL PROGRESS BAR ----------
+window.addEventListener("scroll", () => {
+  const progressBar = document.getElementById("progress-bar");
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrollPercent = (scrollTop / scrollHeight) * 100;
+  progressBar.style.width = scrollPercent + "%";
+});
+
+// ---------- ⬆️ BACK TO TOP BUTTON ----------
+const backToTopButton = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 400) {
+    backToTopButton.style.display = "block";
   } else {
-    localStorage.removeItem("theme");
+    backToTopButton.style.display = "none";
   }
 });
 
-// Smooth scrolling for anchor links
-document.querySelectorAll("a.scroll").forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
   });
 });
 
-// Scroll Progress Bar
-window.addEventListener("scroll", () => {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollPercent = (scrollTop / docHeight) * 100;
-  document.getElementById("progress-bar").style.width = `${scrollPercent}%`;
-});
+// ---------- 📄 COLLAPSIBLE PDF VIEWERS ----------
+function togglePDF(id) {
+  const pdfDiv = document.getElementById(id);
+  const isCollapsed = pdfDiv.classList.contains("collapsed");
 
-// Back to Top Button
-const backToTop = document.getElementById("backToTop");
+  // Collapse all others
+  document.querySelectorAll(".pdf-viewer").forEach(viewer => viewer.classList.add("collapsed"));
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 500) {
-    backToTop.style.display = "block";
+  if (isCollapsed) {
+    pdfDiv.classList.remove("collapsed");
   } else {
-    backToTop.style.display = "none";
+    pdfDiv.classList.add("collapsed");
   }
-});
+}
 
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+// ---------- ✨ FADE-IN SECTION ON SCROLL ----------
+const sections = document.querySelectorAll(".section");
 
-// Fade in sections as they come into view
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  },
-  { threshold: 0.1 }
-);
+const revealOnScroll = () => {
+  const triggerBottom = window.innerHeight * 0.9;
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < triggerBottom) {
+      section.classList.add("visible");
+    }
+  });
+};
 
-document.querySelectorAll(".section").forEach((section) => {
-  observer.observe(section);
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+// ---------- 🔗 SMOOTH NAVIGATION ----------
+document.querySelectorAll('#nav-menu a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", e => {
+    e.preventDefault();
+    const target = document.querySelector(anchor.getAttribute("href"));
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop - 70,
+        behavior: "smooth"
+      });
+    }
+  });
 });
