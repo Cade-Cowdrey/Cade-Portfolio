@@ -1,9 +1,9 @@
 /* ==========================================================
-   Cade Cowdrey Portfolio – Classic Refined Theme + Day Mode
-   Blue-gray + soft gold luxury palette
+   Cade Cowdrey Portfolio – Luxury Depth Theme
+   Deep navy + soft gold palette
    ========================================================== */
 
-/* ---------- GLOBAL RESET ---------- */
+/* ---------- RESET ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -13,42 +13,38 @@
 /* ---------- BASE ---------- */
 html, body {
   font-family: 'Montserrat', 'Poppins', 'Segoe UI', sans-serif;
-  background-color: #0b0f1a;
-  color: #e8e8e8;
-  scroll-behavior: smooth;
+  background: #0b0f1a;
+  color: #e9e9e9;
   line-height: 1.7;
-  transition: background-color 0.5s ease, color 0.5s ease;
+  scroll-behavior: smooth;
+  transition: background 0.6s ease, color 0.6s ease;
 }
 
-/* ---------- COLOR PALETTE ---------- */
+/* ---------- PALETTE ---------- */
 :root {
-  --navy: #0b0f1a;
-  --navy-light: #121827;
-  --gray: #181d2a;
-  --gray-light: #20263a;
-  --blue-gray: #2a3142;
+  --navy-dark: #0b0f1a;
+  --navy-mid: #1a2032;
+  --navy-light: #22293b;
   --gold: #bfa76b;
-  --gold-light: #d6c285;
-  --text: #f2f2f2;
-  --muted: #9ea3b0;
+  --gold-light: #d7c688;
+  --gray: #1c2130;
+  --gray-light: #2a3144;
+  --text-light: #f2f2f2;
+  --text-muted: #a0a5b2;
 }
 
 /* ---------- LIGHT MODE OVERRIDES ---------- */
 body.light-mode {
-  background-color: #f6f7f9;
-  color: #2a2a2a;
-  --navy: #f9f9f9;
-  --navy-light: #ffffff;
-  --gray: #f0f0f2;
-  --gray-light: #e8e8ec;
-  --blue-gray: #ffffff;
-  --gold: #c1a86e;
-  --gold-light: #e3c984;
-  --text: #1e1e1e;
-  --muted: #666;
+  background: #f9f9fb;
+  color: #1e1e1e;
+  --navy-dark: #f9f9fb;
+  --navy-mid: #ffffff;
+  --gray: #f1f1f4;
+  --gold: #c3ad73;
+  --gold-light: #e7d396;
 }
 
-/* ---------- STRUCTURE ---------- */
+/* ---------- CONTAINERS ---------- */
 .container {
   width: 90%;
   max-width: 1100px;
@@ -73,17 +69,17 @@ body.light-mode {
 }
 
 .section.alt {
-  background-color: var(--gray);
-  transition: background-color 0.5s ease;
+  background: var(--gray);
+  transition: background 0.6s ease;
 }
 
 /* ---------- HERO ---------- */
 #hero {
   text-align: center;
   padding: 110px 20px 70px;
-  background: linear-gradient(180deg, var(--navy) 40%, var(--gray-light) 100%);
+  background: linear-gradient(180deg, var(--navy-dark) 30%, var(--navy-mid) 100%);
   border-bottom: 1px solid rgba(191,167,107,0.25);
-  transition: background 0.5s ease;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.3);
 }
 
 .hero-inner {
@@ -99,18 +95,18 @@ body.light-mode {
   border-radius: 50%;
   border: 2px solid var(--gold);
   object-fit: cover;
-  box-shadow: 0 0 20px rgba(191,167,107,0.25);
+  box-shadow: 0 0 25px rgba(191,167,107,0.35);
 }
 
 h1 {
   font-size: 2.6rem;
   font-weight: 700;
   color: var(--gold);
-  text-shadow: 0 0 8px rgba(191,167,107,0.25);
+  text-shadow: 0 0 10px rgba(191,167,107,0.4);
 }
 
 .tagline {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: #cfd4e3;
   margin-bottom: 10px;
   letter-spacing: 0.3px;
@@ -120,10 +116,61 @@ body.light-mode .tagline {
   color: #444;
 }
 
-.hero-buttons {
-  margin-top: 10px;
+/* ---------- NAVIGATION ---------- */
+#nav-menu {
+  background-color: var(--gray-light);
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  border-bottom: 1px solid rgba(191,167,107,0.25);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.5s ease;
+}
+
+#nav-menu ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+#nav-menu a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+#nav-menu a:hover {
+  color: var(--gold-light);
+}
+
+#themeToggle {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* ---------- PROGRESS BAR ---------- */
+#progress-container {
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1200;
+}
+
+#progress-bar {
+  height: 3px;
+  background: var(--gold);
+  width: 0%;
+  transition: width 0.25s;
 }
 
 /* ---------- BUTTONS ---------- */
@@ -156,63 +203,6 @@ body.light-mode .tagline {
   color: #0b0f1a;
 }
 
-/* ---------- NAVIGATION ---------- */
-#nav-menu {
-  background-color: var(--gray-light);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 30px;
-  border-bottom: 1px solid rgba(191,167,107,0.25);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  transition: background-color 0.5s ease;
-}
-
-#nav-menu ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-#nav-menu a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-#nav-menu a:hover {
-  color: var(--gold);
-}
-
-#themeToggle {
-  background: transparent;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-/* ---------- PROGRESS BAR ---------- */
-#progress-container {
-  width: 100%;
-  height: 3px;
-  background: rgba(255,255,255,0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1200;
-}
-
-#progress-bar {
-  height: 3px;
-  background: var(--gold);
-  width: 0%;
-  transition: width 0.25s;
-}
-
 /* ---------- CARDS ---------- */
 .cards {
   display: grid;
@@ -221,16 +211,17 @@ body.light-mode .tagline {
 }
 
 .card {
-  background: var(--blue-gray);
+  background: var(--gray-light);
   border: 1px solid rgba(191,167,107,0.25);
   padding: 22px;
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 15px rgba(191,167,107,0.15);
+  box-shadow: 0 0 18px rgba(191,167,107,0.25);
 }
 
 .card h3 {
@@ -244,45 +235,29 @@ body.light-mode .tagline {
   line-height: 1.6;
 }
 
+body.light-mode .card {
+  background: #fff;
+  border-color: #ddd;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
 body.light-mode .card p {
   color: #333;
 }
 
-/* ---------- COLLAPSIBLE PDF ---------- */
-.collapse-btn {
-  background: var(--gold);
-  color: #0b0f1a;
-  border: none;
-  padding: 7px 14px;
-  border-radius: 18px;
-  margin-top: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: background 0.3s ease;
+/* ---------- LISTS ---------- */
+.awards-list {
+  list-style: none;
+  margin-top: 15px;
 }
 
-.collapse-btn:hover {
-  background: var(--gold-light);
+.awards-list li {
+  margin-bottom: 10px;
+  color: #d8d8d8;
 }
 
-.pdf-viewer {
-  margin-top: 10px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.6s ease;
-  border-radius: 8px;
-  border: 1px solid rgba(191,167,107,0.2);
-}
-
-.pdf-viewer iframe {
-  width: 100%;
-  height: 600px;
-  border: none;
-}
-
-.pdf-viewer:not(.collapsed) {
-  max-height: 700px;
+.awards-list strong {
+  color: var(--gold);
 }
 
 /* ---------- QUOTES ---------- */
@@ -292,26 +267,12 @@ blockquote {
   border-left: 3px solid var(--gold);
   padding-left: 15px;
   margin: 20px 0;
+  line-height: 1.6;
 }
 
-/* ---------- GALLERY ---------- */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 15px;
-}
-
-.gallery-item {
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid rgba(191,167,107,0.3);
-  object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-item:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 18px rgba(191,167,107,0.25);
+body.light-mode blockquote {
+  color: #444;
+  border-left-color: var(--gold);
 }
 
 /* ---------- CONTACT ---------- */
@@ -332,7 +293,6 @@ footer {
   border-top: 1px solid rgba(191,167,107,0.2);
   font-size: 0.9rem;
   color: #aaa;
-  transition: border-color 0.5s ease;
 }
 
 /* ---------- BACK TO TOP ---------- */
@@ -371,10 +331,6 @@ footer {
 
   .card {
     padding: 18px;
-  }
-
-  .pdf-viewer iframe {
-    height: 400px;
   }
 
   #nav-menu ul {
