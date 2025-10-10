@@ -1,6 +1,6 @@
 /* ==========================================================
-   Cade Cowdrey Portfolio – Luxury Depth Theme v3
-   Deep navy + soft gold palette with award glow accent
+   Cade Cowdrey Portfolio – Luxury Depth v7
+   Unified gold shimmer + glowing buttons and link highlights
    ========================================================== */
 
 /* ---------- RESET ---------- */
@@ -44,6 +44,31 @@ body.light-mode {
   --text-muted: #555;
 }
 
+/* ---------- ANIMATIONS ---------- */
+@keyframes shimmer {
+  0% { text-shadow: 0 0 8px rgba(191,167,107,0.2); }
+  50% { text-shadow: 0 0 18px rgba(191,167,107,0.6); }
+  100% { text-shadow: 0 0 8px rgba(191,167,107,0.2); }
+}
+
+@keyframes dividerGlow {
+  0% { box-shadow: 0 0 10px rgba(191,167,107,0.25); }
+  50% { box-shadow: 0 0 20px rgba(191,167,107,0.55); }
+  100% { box-shadow: 0 0 10px rgba(191,167,107,0.25); }
+}
+
+@keyframes ringPulse {
+  0% { box-shadow: 0 0 10px rgba(191,167,107,0.3); }
+  50% { box-shadow: 0 0 25px rgba(191,167,107,0.7); }
+  100% { box-shadow: 0 0 10px rgba(191,167,107,0.3); }
+}
+
+@keyframes buttonGlow {
+  0% { box-shadow: 0 0 10px rgba(191,167,107,0.3); }
+  50% { box-shadow: 0 0 20px rgba(191,167,107,0.6); }
+  100% { box-shadow: 0 0 10px rgba(191,167,107,0.3); }
+}
+
 /* ---------- CONTAINERS ---------- */
 .container {
   width: 90%;
@@ -58,9 +83,12 @@ body.light-mode {
 
 .section {
   padding: 80px 0;
+  border-top: 1px solid rgba(191,167,107,0.25);
+  box-shadow: 0 0 15px rgba(191,167,107,0.35);
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease, transform 1s ease;
+  animation: dividerGlow 6s infinite ease-in-out;
 }
 
 .section.visible {
@@ -94,14 +122,14 @@ body.light-mode {
   border-radius: 50%;
   border: 2px solid var(--gold);
   object-fit: cover;
-  box-shadow: 0 0 25px rgba(191,167,107,0.35);
+  animation: ringPulse 6s infinite ease-in-out;
 }
 
 h1 {
   font-size: 2.8rem;
   font-weight: 700;
   color: var(--gold);
-  text-shadow: 0 0 12px rgba(191,167,107,0.45);
+  animation: shimmer 5s infinite ease-in-out;
 }
 
 .tagline {
@@ -135,17 +163,11 @@ h1 {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s ease;
+  animation: shimmer 7s infinite ease-in-out;
 }
 
 #nav-menu a:hover {
   color: var(--gold-light);
-}
-
-#themeToggle {
-  background: transparent;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
 }
 
 /* ---------- PROGRESS BAR ---------- */
@@ -175,20 +197,24 @@ h1 {
   font-weight: 600;
   transition: all 0.3s ease;
   font-size: 0.95rem;
+  cursor: pointer;
 }
 
 .btn.primary {
   background: var(--gold);
   color: #0b0f1a;
+  animation: buttonGlow 6s infinite ease-in-out;
 }
 
 .btn.primary:hover {
   background: var(--gold-light);
+  transform: translateY(-2px);
 }
 
 .btn.secondary {
   border: 2px solid var(--gold);
   color: var(--gold);
+  animation: buttonGlow 6s infinite ease-in-out;
 }
 
 .btn.secondary:hover {
@@ -214,7 +240,7 @@ h1 {
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 18px rgba(191,167,107,0.25);
+  box-shadow: 0 0 20px rgba(191,167,107,0.3);
 }
 
 .card h3 {
@@ -231,12 +257,12 @@ h1 {
 /* ---------- LISTS (Awards) ---------- */
 .awards-list {
   list-style: none;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 .awards-list li {
   margin-bottom: 14px;
-  color: #e2e2e2; /* lighter contrast */
+  color: #e8e8e8;
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -244,22 +270,20 @@ h1 {
 .awards-list strong {
   color: var(--gold);
   font-weight: 600;
+  text-shadow: 0 0 10px rgba(191,167,107,0.4);
+  animation: shimmer 6s infinite ease-in-out;
 }
 
-/* ---------- AWARDS HEADING (Hero Glow Style) ---------- */
-#awards h2 {
+/* ---------- HEADINGS (Hero + Awards + Leadership) ---------- */
+#awards h2,
+#leadership h2 {
   color: var(--gold);
   font-size: 2rem;
   text-align: center;
   text-shadow: 0 0 14px rgba(191,167,107,0.5);
+  animation: shimmer 6s infinite ease-in-out;
   margin-bottom: 30px;
   letter-spacing: 0.5px;
-}
-
-/* Optional: give the Leadership & Impact heading the same treatment */
-#leadership h2 {
-  color: var(--gold);
-  text-shadow: 0 0 12px rgba(191,167,107,0.4);
 }
 
 /* ---------- QUOTES ---------- */
@@ -283,19 +307,23 @@ blockquote + p {
   color: var(--gold);
   text-decoration: none;
   font-weight: 500;
+  animation: shimmer 8s infinite ease-in-out;
 }
 
 #contact a:hover {
   text-decoration: underline;
+  color: var(--gold-light);
 }
 
 /* ---------- FOOTER ---------- */
 footer {
   text-align: center;
   padding: 25px 10px;
-  border-top: 1px solid rgba(191,167,107,0.2);
+  border-top: 1px solid rgba(191,167,107,0.25);
+  box-shadow: 0 0 15px rgba(191,167,107,0.4);
   font-size: 0.9rem;
   color: #aaa;
+  animation: dividerGlow 6s infinite ease-in-out;
 }
 
 /* ---------- BACK TO TOP ---------- */
