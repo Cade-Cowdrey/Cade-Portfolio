@@ -1,93 +1,69 @@
 /* ==========================================================
-   Cade Cowdrey Portfolio – Refined Interaction Script
+   Cade Cowdrey Portfolio – Interactive Behavior Script
+   Handles scroll reveal, progress bar, back-to-top, and theme toggle
    ========================================================== */
 
-// ---------- 🌙 THEME TOGGLE ----------
-const themeToggle = document.getElementById("themeToggle");
-const body = document.body;
+// ---------- Scroll Progress Bar ----------
+const progressBar = document.getElementById("progress-bar");
+window.addEventListener("scroll", () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (scrollTop / height) * 100;
+  progressBar.style.width = scrolled + "%";
+});
 
-// Load saved theme
-if (localStorage.getItem("theme") === "light") {
-  body.classList.add("light-mode");
+// ---------- Back to Top Button ----------
+const backToTop = document.getElementById("backToTop");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 400) {
+    backToTop.style.display = "block";
+  } else {
+    backToTop.style.display = "none";
+  }
+});
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// ---------- Theme Toggle (Light/Dark Mode) ----------
+const themeToggle = document.getElementById("themeToggle");
+const userTheme = localStorage.getItem("theme");
+
+if (userTheme === "light") {
+  document.body.classList.add("light-mode");
+  themeToggle.textContent = "🌞";
+} else {
   themeToggle.textContent = "🌙";
 }
 
-// Toggle theme
 themeToggle.addEventListener("click", () => {
-  body.classList.toggle("light-mode");
-  const isLight = body.classList.contains("light-mode");
-  themeToggle.textContent = isLight ? "🌙" : "☀️";
-  localStorage.setItem("theme", isLight ? "light" : "dark");
+  document.body.classList.toggle("light-mode");
+  const currentTheme = document.body.classList.contains("light-mode") ? "light" : "dark";
+  localStorage.setItem("theme", currentTheme);
+  themeToggle.textContent = currentTheme === "light" ? "🌞" : "🌙";
 });
 
-// ---------- 📜 SCROLL PROGRESS BAR ----------
-window.addEventListener("scroll", () => {
-  const progressBar = document.getElementById("progress-bar");
-  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrollPercent = (scrollTop / scrollHeight) * 100;
-  progressBar.style.width = scrollPercent + "%";
-});
-
-// ---------- ⬆️ BACK TO TOP BUTTON ----------
-const backToTopButton = document.getElementById("backToTop");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 400) {
-    backToTopButton.style.display = "block";
-  } else {
-    backToTopButton.style.display = "none";
-  }
-});
-
-backToTopButton.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-});
-
-// ---------- 📄 COLLAPSIBLE PDF VIEWERS ----------
-function togglePDF(id) {
-  const pdfDiv = document.getElementById(id);
-  const isCollapsed = pdfDiv.classList.contains("collapsed");
-
-  // Collapse all others
-  document.querySelectorAll(".pdf-viewer").forEach(viewer => viewer.classList.add("collapsed"));
-
-  if (isCollapsed) {
-    pdfDiv.classList.remove("collapsed");
-  } else {
-    pdfDiv.classList.add("collapsed");
-  }
-}
-
-// ---------- ✨ FADE-IN SECTION ON SCROLL ----------
+// ---------- Section Fade-In on Scroll ----------
 const sections = document.querySelectorAll(".section");
-
-const revealOnScroll = () => {
-  const triggerBottom = window.innerHeight * 0.9;
+const revealSection = () => {
   sections.forEach(section => {
-    const sectionTop = section.getBoundingClientRect().top;
-    if (sectionTop < triggerBottom) {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.85) {
       section.classList.add("visible");
     }
   });
 };
+window.addEventListener("scroll", revealSection);
+window.addEventListener("load", revealSection);
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
-
-// ---------- 🔗 SMOOTH NAVIGATION ----------
-document.querySelectorAll('#nav-menu a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", e => {
+// ---------- Smooth Anchor Scroll ----------
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
-    const target = document.querySelector(anchor.getAttribute("href"));
-    if (target) {
-      window.scrollTo({
-        top: target.offsetTop - 70,
-        behavior: "smooth"
-      });
+    const targetId = this.getAttribute("href").substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
     }
   });
 });
